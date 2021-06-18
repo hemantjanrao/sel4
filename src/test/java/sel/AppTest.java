@@ -1,6 +1,9 @@
 package sel;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -40,7 +43,14 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {   
-        System.out.println("Printing X");
-        Assert.assertTrue(true);
+        driver.get("https://example.com/");
+        WebElement elem = driver.findElement(By.tagName("a"));
+        Assert.assertEquals(elem.getText(), "More information...");
+
+        // Opens a new window and switches to new window
+        driver.switchTo().newWindow(WindowType.WINDOW);
+
+        // Opens BrowserStack homepage in the newly opened window
+        driver.navigate().to("https://www.browserstack.com/");
     }
 }
