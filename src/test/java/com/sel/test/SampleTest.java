@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static com.sel.test.config.ConfigurationManager.configuration;
+import static com.sel.config.ConfigurationManager.configuration;
 
 public class SampleTest extends BaseTest {
 

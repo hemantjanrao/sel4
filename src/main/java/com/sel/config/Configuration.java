@@ -22,17 +22,16 @@
  * SOFTWARE.
  */
 
-package com.sel.test.config;
+package com.sel.config;
 
-import org.aeonbits.owner.ConfigCache;
+import org.aeonbits.owner.Config;
+import org.aeonbits.owner.Config.LoadPolicy;
+import org.aeonbits.owner.Config.LoadType;
 
-public class ConfigurationManager {
+@LoadPolicy(LoadType.FIRST)
+@Config.Sources({"classpath:general.properties"})
+public interface Configuration extends Config {
 
-    private ConfigurationManager() {
-    }
-
-    public static Configuration configuration() {
-        return ConfigCache.getOrCreate(Configuration.class);
-    }
+    @Key("url.base")
+    String url();
 }
-
